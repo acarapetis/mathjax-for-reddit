@@ -2,7 +2,7 @@
 // @name       MathJax for Reddit
 // @namespace  
 // @author     /u/amdpox
-// @version    0.4
+// @version    0.5
 // @description Enables MathJax on reddit for the TeXtheWorld delimiters [; ... ;].
 // @match      *://*.reddit.com/*
 // @copyright
@@ -18,12 +18,17 @@ if (window.MathJax === undefined) {
         script.text = config;
     }
     document.getElementsByTagName("head")[0].appendChild(script);
-    (doMathJax = function () {
+    var doMathJax = function () {
         window.setTimeout(doMathJax, 1000);
         MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
-        $('.MathJax').parent().css('border','none').css('background','none');
-    })();
-
+        var maths = document.getElementsByClassName("MathJax");
+        for (var i = 0; i < maths.length; i++) {
+            var node = maths[i].parentElement;
+            node.style.border = 'none';
+            node.style.background = 'none';
+        }
+    };
+    doMathJax();
 } else {
     MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
 }
