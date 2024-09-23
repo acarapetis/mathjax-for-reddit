@@ -2,7 +2,7 @@
 
 A userscript for rendering LaTeX on reddit using MathJax.
 
-It renders text between the delimiters `` `[; ;]` `` as inline math and `` `(; ;)` `` as display math, which is a convention used on [/r/math][rmath] and some other subreddits.
+It renders text between the delimiters `` `[; ;]` `` as inline math and `` `[(; ;)]` `` as display math, which is a convention used on [/r/math][rmath] and some other subreddits.
 
 ## Usage
 
